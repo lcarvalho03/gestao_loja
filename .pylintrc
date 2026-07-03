@@ -1,0 +1,14 @@
+[MASTER]
+# Plugin que ensina o Pylint a entender o ORM do Django.
+# Instale com:  pip install pylint pylint-django
+load-plugins=pylint_django
+
+# Aponte para o módulo de settings do seu projeto (ajuste se o seu não for "core").
+django-settings-module=core.settings
+
+[MESSAGES CONTROL]
+# Silencia falsos positivos comuns com Django, caso ainda apareçam.
+disable=
+    no-member,
+    too-few-public-methods,
+    imported-auth-user

@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Loja{% endblock %}</title>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- OverlayScrollbars (usado pela sidebar do AdminLTE 4) -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.0/styles/overlayscrollbars.min.css">
+  <!-- AdminLTE 4 (gratuito, MIT) — já inclui o Bootstrap 5 -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/admin-lte@4.0.2/dist/css/adminlte.min.css">
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <div class="app-wrapper">
+    <!-- Header -->
+    <nav class="app-header navbar navbar-expand bg-body">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <i class="bi bi-list"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+      <div class="sidebar-brand">
+        <a href="/" class="brand-link">
+          <i class="bi bi-shop"></i>
+          <span class="brand-text fw-light">Loja</span>
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <nav class="mt-2">
+          <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu">
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link"><i class="nav-icon bi bi-speedometer2"></i>
+                <p>Início</p></a>
+            </li>
+            <li class="nav-item">
+              <!-- <a href="{% url 'cliente_novo' %}" class="nav-link"><i class="nav-icon bi bi-people"></i> -->
+                <a href="{% url 'clientes' %}" class="nav-link"><i class="nav-icon bi bi-people"></i>
+                <p>Clientes</p></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'fornecedor_novo' %}" class="nav-link"><i class="nav-icon bi bi-truck"></i>
+                <p>Fornecedores</p></a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'produto_novo' %}" class="nav-link"><i class="nav-icon bi bi-box-seam"></i>
+                <p>Produtos</p></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="nav-icon bi bi-receipt"></i>
+                <p>Faturas / Cotações</p></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><i class="nav-icon bi bi-bar-chart"></i>
+                <p>Relatórios</p></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <main class="app-main">
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <h3 class="mb-0">{% block page_title %}{% endblock %}</h3>
+        </div>
+      </div>
+      <div class="app-content">
+        <div class="container-fluid">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <strong>Loja</strong> — sistema de vendas.
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.2/dist/js/adminlte.min.js"></script>
+  <!-- IMask (gratuito, MIT) para as máscaras -->
+  <script src="https://cdn.jsdelivr.net/npm/imask@7.6.1/dist/imask.min.js"></script>
+  <script src="{% static 'loja/js/masks.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

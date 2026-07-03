@@ -1,0 +1,39 @@
+# Ambiente Virtual
+env/
+.env/
+venv/
+ENV/
+
+# Variáveis de ambiente e arquivos de configuração sensíveis
+.env
+local_settings.py
+
+# Arquivos compilados do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Bancos de dados (geralmente SQLite local)
+db.sqlite3
+db.sqlite3-journal
+
+# Logs e arquivos temporários
+*.log
+*.pot
+*.pyc
+
+# Arquivos de mídia (uploads de usuários)
+# Caso não queira versionar o que os usuários sobem para o servidor
+media/
+
+# Arquivos estáticos coletados pelo Django
+staticfiles/
+
+# Configurações de IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema Operacional (ex: Mac)
+.DS_Store
