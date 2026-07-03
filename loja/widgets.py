@@ -36,6 +36,10 @@ class _MaskedTextInput(forms.TextInput):
         """Aplica a classe de máscara e o placeholder do subtipo."""
         super().__init__(_merge_attrs(self.mask_class, self.default_placeholder, attrs))
 
+    def format_value(self, value):
+        """Formata o valor vindo do banco de dados para exibição nas telas de Edição."""
+        return formatar_documento(value)
+
 
 class CPFCNPJInput(_MaskedTextInput):
     """Documento dinâmico: CPF até 11 dígitos, CNPJ a partir de 12."""
@@ -58,10 +62,19 @@ class TelefoneInput(RegionalPhoneNumberWidget):
         """Aplica a classe da máscara de telefone e o placeholder."""
         super().__init__(attrs=_merge_attrs("mask-telefone", "(00) 0000-0000", attrs))
 
-
 class CelularInput(RegionalPhoneNumberWidget):
     """Celular com máscara (00) 00000-0000 e formato nacional."""
 
     def __init__(self, attrs=None):
         """Aplica a classe da máscara de celular e o placeholder."""
         super().__init__(attrs=_merge_attrs("mask-celular", "(00) 00000-0000", attrs))
+
+def formatar_documento(valor):
+    if not valor:
+        return ""
+    numeros = "".join(filter(str.isdigit, str(valor)))
+    if len(numeros) == 11:
+        return f"{numeros[:3]}.{numeros[3:6]}.{numeros[6:9]}-{numeros[9:]}"
+    elif len(numeros) == 14:
+        return f"{numeros[:2]}.{numeros[2:5]}.{numeros[5:8]}/{numeros[8:12]}-{numeros[12:]}"
+    return valor
