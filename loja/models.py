@@ -2,7 +2,6 @@
 faturas/cotações e movimentações de estoque."""
 
 from decimal import Decimal
-
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from localflavor.br.models import BRCPFField, BRCNPJField
