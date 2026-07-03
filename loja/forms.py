@@ -51,7 +51,11 @@ class ClienteForm(forms.ModelForm):
 class FornecedorForm(forms.ModelForm):
     """Formulário de cadastro/edição de fornecedor com máscara e validação BR."""
 
-    cnpj = BRCNPJField(label="CNPJ", widget=CNPJInput())
+    cnpj = BRCNPJField(label="CNPJ", widget=CNPJInput(attrs={
+            "class": "form-control mask-cnpj",
+            "placeholder": "00.000.000/0000-00"
+        })
+    )
 
     class Meta:
         """Configuração do ModelForm de Fornecedor."""

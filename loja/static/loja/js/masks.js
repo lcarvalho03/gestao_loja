@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".mask-documento").forEach(function (el) {
     IMask(el, {
       mask: [
-        { mask: "000.000.000-00", maxLength: 11 },
+        { mask: "000.000.000-00" },
         { mask: "00.000.000/0000-00" },
       ],
       dispatch: function (appended, dynamicMasked) {
