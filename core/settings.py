@@ -154,6 +154,6 @@ PHONENUMBER_DEFAULT_REGION = 'BR'
 # Controle de acessos e rotas do login
 # LOGIN_URL = '/accounts/login/'
 LOGIN_URL = 'admin:login'
-LOGIN_REDIRECT_URL = 'admin:index'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'admin:login'
 LOGOUT_ON_GET = True

@@ -27,5 +27,5 @@ class FornecedorAdmin(admin.ModelAdmin):
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
     """Configurações de exibição do modelo Produto."""
-    list_display = ('nome',)
-    search_fields = ('nome',)
+    list_display = ('nome', 'categoria')
+    search_fields = ('nome', 'categoria')
